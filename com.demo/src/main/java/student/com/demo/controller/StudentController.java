@@ -19,11 +19,17 @@ import student.com.demo.service.StudentService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/stud")
+@RequestMapping("/")
 public class StudentController {
       
 	@Autowired
 	   private StudentService studentService;
+	
+	@GetMapping("/welcome")
+    	public String welcome() {
+        return "Service is running successfully...";
+   	 }
+	
 	
 	 @PostMapping("/addnew")
 	    public ResponseEntity<Student> createStudent(@RequestBody Student student) {
